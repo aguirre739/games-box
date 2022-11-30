@@ -1,19 +1,28 @@
 {
-  "posts": [
+  "juegos":[
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "nombreJuego": "Dark Souls 3",
+      "precioJuego": "650",
+      "portada": "portadaDS3.jpg",
+      "fechaLanzamiento": "25/09/2020",
+      "categoria": "accion",
+      "id": 1
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "nombreJuego": "The Witcher 3",
+      "precioJuego": "3200",
+      "portada": "portadaTW.jpg",
+      "fechaLanzamiento": "10/01/2021",
+      "categoria": "aventura",
+      "id": 2
+    },
+    {
+      "nombreJuego": "Borderlands 3",
+      "precioJuego": "2450",
+      "portada": "portadaBL.jpg",
+      "fechaLanzamiento": "11/10/2019",
+      "categoria": "aventura",
+      "id": 3
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
