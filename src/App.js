@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -13,13 +14,30 @@ import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 
 function App() {
+  const [listaJuegos, setListaJuegos] = useState([]);
+
+  useEffect(()=>{
+    consultarApi();
+  },[])
+
+  const consultarApi = async ()=>{
+    try{
+      const consulta = await fetch("http://localhost:4000/juegos")
+      const resultado = await consulta.json();
+      setListaJuegos(resultado)
+    }catch(error){
+      console.log(error)
+    }
+  }
+
+
   return (
     <Router>
       <Header></Header>
       <Routes>
         <Route exact path ="/" element={<Inicio></Inicio>}>
         </Route>
-        <Route exact path ="/productos" element={<ListarProductos></ListarProductos>}>
+        <Route exact path ="/productos" element={<ListarProductos listaJuegos = {listaJuegos}></ListarProductos>}>
         </Route>
         <Route exact path ="/productos/nuevo" element={<AgregarProducto></AgregarProducto>}>
         </Route>

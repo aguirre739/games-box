@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
+import Swal from 'sweetalert2';
 
 const AgregarProducto = () => {
   const [nombreJuego, setNombreJuego] = useState("");
@@ -49,8 +50,27 @@ const AgregarProducto = () => {
         const resultado = await fetch("http://localhost:4000/juegos",cabecera);
         console.log(resultado)
 
+        if(resultado.status === 201){
+            Swal.fire(
+                'Producto Creado',
+                'El producto se agregó correctamente',
+                'success'
+            )
+        }else{
+            Swal.fire(
+                'Oopss...',
+                'Ocurrió un error, intentelo nuevamente',
+                'error'
+            )
+        }
+
     }catch(excepcion){
         console.log(excepcion)
+        Swal.fire(
+            'Oopss...',
+            'Ocurrió un error, intentelo nuevamente',
+            'error'
+        )
     }
   };
 

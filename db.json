@@ -31,6 +31,14 @@
       "fechaLanzamiento": "2022-11-02",
       "categoria": "accion",
       "id": 4
+    },
+    {
+      "nombreJuego": "Call Of Duty: Modern Warfare II",
+      "precioJuego": "6990",
+      "portada": "https://cdn.akamai.steamstatic.com/steam/apps/1938090/hero_capsule.jpg?t=1668813907",
+      "fechaLanzamiento": "2022-10-28",
+      "categoria": "accion",
+      "id": 5
     }
   ]
 }
