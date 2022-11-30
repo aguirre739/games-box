@@ -1,5 +1,5 @@
 {
-  "juegos":[
+  "juegos": [
     {
       "nombreJuego": "Dark Souls 3",
       "precioJuego": "650",
@@ -23,6 +23,14 @@
       "fechaLanzamiento": "11/10/2019",
       "categoria": "aventura",
       "id": 3
+    },
+    {
+      "nombreJuego": "Hunt: Shutdown",
+      "precioJuego": "130",
+      "portada": "https://cdn.akamai.steamstatic.com/steam/apps/2133640/ss_1feab42d245585bb05e619efccc38b6043aae4db.600x338.jpg?t=1669046535",
+      "fechaLanzamiento": "2022-11-02",
+      "categoria": "accion",
+      "id": 4
     }
   ]
 }

@@ -16,7 +16,7 @@ const AgregarProducto = () => {
     setCategoria(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (
       nombreJuego.trim() === "" ||
@@ -29,6 +29,29 @@ const AgregarProducto = () => {
       return;
     }
     setError(false);
+    const datos = {
+        nombreJuego,
+        precioJuego,
+        portada,
+        fechaLanzamiento,
+        categoria
+    }
+
+    try{
+        const cabecera ={
+            method: "POST",
+            headers: {
+              "Content-Type":"application/json"
+            },
+            body: JSON.stringify(datos)
+          }
+
+        const resultado = await fetch("http://localhost:4000/juegos",cabecera);
+        console.log(resultado)
+
+    }catch(excepcion){
+        console.log(excepcion)
+    }
   };
 
   return (
