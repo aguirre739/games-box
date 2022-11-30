@@ -42,17 +42,13 @@
    background: rgba(253, 252, 252, 0.21);
 }
 
-.sidebar{
-    background: #1B262C!important;
-    color: #ffffff!important;
-}
-
 .fondo-form{
     background-color: #1B262C;
 }
 
 .color-texto{
-    color: #FDCB9E;
+  /*  color: #FDCB9E;*/
+  color: #ffffff;
 }
 
 .boton{
