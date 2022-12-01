@@ -3,7 +3,7 @@
     {
       "nombreJuego": "Dark Souls 3",
       "precioJuego": "650",
-      "portada": "portadaDS3.jpg",
+      "portada": "img/portadaDS3.jpg",
       "fechaLanzamiento": "25/09/2020",
       "categoria": "accion",
       "id": 1
@@ -11,7 +11,7 @@
     {
       "nombreJuego": "The Witcher 3",
       "precioJuego": "3200",
-      "portada": "portadaTW.jpg",
+      "portada": "img/portadaBL.jpg",
       "fechaLanzamiento": "10/01/2021",
       "categoria": "aventura",
       "id": 2
@@ -19,7 +19,7 @@
     {
       "nombreJuego": "Borderlands 3",
       "precioJuego": "2450",
-      "portada": "portadaBL.jpg",
+      "portada": "img/portadaTW.jpg",
       "fechaLanzamiento": "11/10/2019",
       "categoria": "aventura",
       "id": 3
