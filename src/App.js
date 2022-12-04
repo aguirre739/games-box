@@ -15,10 +15,12 @@ import Footer from './components/common/Footer';
 
 function App() {
   const [listaJuegos, setListaJuegos] = useState([]);
+  const [recargarProductos, setRecargarProductos] = useState(true);
 
   useEffect(()=>{
     consultarApi();
-  },[])
+    setRecargarProductos(false);
+  },[recargarProductos])
 
   const consultarApi = async ()=>{
     try{
@@ -37,9 +39,9 @@ function App() {
       <Routes>
         <Route exact path ="/" element={<Inicio></Inicio>}>
         </Route>
-        <Route exact path ="/productos" element={<ListarProductos listaJuegos = {listaJuegos}></ListarProductos>}>
+        <Route exact path ="/productos" element={<ListarProductos listaJuegos = {listaJuegos} recargarProductos={recargarProductos}></ListarProductos>}>
         </Route>
-        <Route exact path ="/productos/nuevo" element={<AgregarProducto></AgregarProducto>}>
+        <Route exact path ="/productos/nuevo" element={<AgregarProducto setRecargarProductos={setRecargarProductos}></AgregarProducto>}>
         </Route>
         <Route exact path ="/productos/editar" element={<EditarProducto></EditarProducto>}>
         </Route>

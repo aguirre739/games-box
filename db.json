@@ -39,6 +39,30 @@
       "fechaLanzamiento": "2022-10-28",
       "categoria": "accion",
       "id": 5
+    },
+    {
+      "nombreJuego": "Read Dead Redeption II",
+      "precioJuego": "2499",
+      "portada": "https://cdn.akamai.steamstatic.com/steam/apps/1174180/library_600x900.jpg?t=1656615305",
+      "fechaLanzamiento": "2022-11-04",
+      "categoria": "aventura",
+      "id": 6
+    },
+    {
+      "nombreJuego": "Dota 2",
+      "precioJuego": "290",
+      "portada": "https://cdn.akamai.steamstatic.com/steam/apps/570/hero_capsule.jpg?t=1666237243",
+      "fechaLanzamiento": "2022-09-26",
+      "categoria": "estrategia",
+      "id": 7
+    },
+    {
+      "nombreJuego": "Dota 2",
+      "precioJuego": "290",
+      "portada": "https://cdn.akamai.steamstatic.com/steam/apps/570/hero_capsule.jpg?t=1666237243",
+      "fechaLanzamiento": "2022-09-26",
+      "categoria": "estrategia",
+      "id": 8
     }
   ]
 }

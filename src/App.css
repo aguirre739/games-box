@@ -39,11 +39,11 @@
 }
   
 .navbar1{
-   background: rgba(253, 252, 252, 0.21);
+  background: rgba(253, 252, 252, 0.21);
 }
 
 .fondo-form{
-    background-color: #1B262C;
+  background-color: #1B262C;
 }
 
 .color-texto{
@@ -54,4 +54,22 @@
 .boton{
     background-color: #00B7C2!important;
     border: 1px solid #00B7C2!important;
+}
+
+.position {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.enlace{
+  text-decoration: none!important;
+}
+
+.linea {
+  border-top: 1px solid whitesmoke;
+  height: 2px;
+  max-width: 100%;
+  padding: 0;
+  margin: 10px 0px;
 }

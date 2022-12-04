@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Swal from 'sweetalert2';
 
-const AgregarProducto = () => {
+const AgregarProducto = (props) => {
   const [nombreJuego, setNombreJuego] = useState("");
   const [precioJuego, setPrecioJuego] = useState("");
   const [portada, setPortada] = useState("");
@@ -51,11 +51,13 @@ const AgregarProducto = () => {
         console.log(resultado)
 
         if(resultado.status === 201){
+            props.setRecargarProductos(true);
             Swal.fire(
                 'Producto Creado',
                 'El producto se agregó correctamente',
                 'success'
-            )
+            );
+            
         }else{
             Swal.fire(
                 'Oopss...',
