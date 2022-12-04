@@ -55,14 +55,6 @@
       "fechaLanzamiento": "2022-09-26",
       "categoria": "estrategia",
       "id": 7
-    },
-    {
-      "nombreJuego": "Dota 2",
-      "precioJuego": "290",
-      "portada": "https://cdn.akamai.steamstatic.com/steam/apps/570/hero_capsule.jpg?t=1666237243",
-      "fechaLanzamiento": "2022-09-26",
-      "categoria": "estrategia",
-      "id": 8
     }
   ]
 }
