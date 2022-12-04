@@ -9,7 +9,7 @@
       "id": 1
     },
     {
-      "nombreJuego": "The Witcher 3",
+      "nombreJuego": "Borderlands 3",
       "precioJuego": "3200",
       "portada": "img/portadaBL.jpg",
       "fechaLanzamiento": "10/01/2021",
@@ -17,7 +17,7 @@
       "id": 2
     },
     {
-      "nombreJuego": "Borderlands 3",
+      "nombreJuego": "The Witcher 3",
       "precioJuego": "2450",
       "portada": "img/portadaTW.jpg",
       "fechaLanzamiento": "11/10/2019",

@@ -37,7 +37,7 @@ function App() {
     <Router>
       <Header></Header>
       <Routes>
-        <Route exact path ="/" element={<Inicio></Inicio>}>
+        <Route exact path ="/" element={<Inicio listaJuegos = {listaJuegos}></Inicio>}>
         </Route>
         <Route exact path ="/productos" element={<ListarProductos listaJuegos = {listaJuegos} recargarProductos={recargarProductos}></ListarProductos>}>
         </Route>
