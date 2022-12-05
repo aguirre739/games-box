@@ -17,17 +17,17 @@ function App() {
   const [listaJuegos, setListaJuegos] = useState([]);
   const [recargarProductos, setRecargarProductos] = useState(true);
 
-  useEffect(()=>{
+  useEffect(() => {
     consultarApi();
     setRecargarProductos(false);
-  },[recargarProductos])
+  }, [recargarProductos])
 
-  const consultarApi = async ()=>{
-    try{
+  const consultarApi = async () => {
+    try {
       const consulta = await fetch("http://localhost:4000/juegos")
       const resultado = await consulta.json();
       setListaJuegos(resultado)
-    }catch(error){
+    } catch (error) {
       console.log(error)
     }
   }
@@ -37,13 +37,27 @@ function App() {
     <Router>
       <Header></Header>
       <Routes>
-        <Route exact path ="/" element={<Inicio listaJuegos = {listaJuegos}></Inicio>}>
+        <Route exact path="/" element={<Inicio listaJuegos={listaJuegos}></Inicio>}>
         </Route>
-        <Route exact path ="/productos" element={<ListarProductos listaJuegos = {listaJuegos} recargarProductos={recargarProductos}></ListarProductos>}>
+        <Route exact path="/productos" element={<ListarProductos listaJuegos={listaJuegos} setRecargarProductos={setRecargarProductos}></ListarProductos>}>
         </Route>
-        <Route exact path ="/productos/nuevo" element={<AgregarProducto setRecargarProductos={setRecargarProductos}></AgregarProducto>}>
+        <Route exact path="/productos/nuevo" element={<AgregarProducto setRecargarProductos={setRecargarProductos}></AgregarProducto>}>
         </Route>
-        <Route exact path ="/productos/editar" element={<EditarProducto></EditarProducto>}>
+        <Route exact path="/productos/editar/:id"
+        render={(props) => {
+          //obtener el id de la ruta
+          const idProducto = props.match.params.id;
+          console.log(idProducto);
+          //filtrar el arreglo de productos y obtener el q coincide con el id
+          const productoSeleccionado = listaJuegos.find(
+            (producto) => producto.id === idProducto
+          );
+          console.log(productoSeleccionado);
+          //renderizar el componente EditarProducto
+          return (
+            <EditarProducto producto={productoSeleccionado} setRecargarProductos={setRecargarProductos}></EditarProducto>
+          );
+        }}>
         </Route>
       </Routes>
       <Footer></Footer>

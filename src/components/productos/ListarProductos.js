@@ -11,7 +11,11 @@ const ListarProductos = (props) => {
       </h1>
       <ListGroup className="my-4">
         {props.listaJuegos.map((item) => (
-          <ItemProducto key={item.id} producto={item} setRecargarProductos={props.setRecargarProductos}></ItemProducto>
+          <ItemProducto
+            key={item.id}
+            producto={item}
+            setRecargarProductos={props.setRecargarProductos}
+          ></ItemProducto>
         ))}
       </ListGroup>
     </Container>
