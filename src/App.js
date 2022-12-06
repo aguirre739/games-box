@@ -12,6 +12,7 @@ import AgregarProducto from './components/productos/AgregarProducto';
 import EditarProducto from './components/productos/EditarProducto';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
+import ReactDOM from "react-dom";
 
 function App() {
   const [listaJuegos, setListaJuegos] = useState([]);
@@ -21,6 +22,15 @@ function App() {
     consultarApi();
     setRecargarProductos(false);
   }, [recargarProductos])
+
+  const seleccionarProducto = (props)=>{
+    const idProducto = props.match.params.id;
+          console.log(idProducto);
+          const productoSeleccionado = listaJuegos.find(
+            (producto) => producto.id === idProducto
+          );
+          console.log(productoSeleccionado);
+  }
 
   const consultarApi = async () => {
     try {
@@ -44,21 +54,8 @@ function App() {
         <Route exact path="/productos/nuevo" element={<AgregarProducto setRecargarProductos={setRecargarProductos}></AgregarProducto>}>
         </Route>
         <Route exact path="/productos/editar/:id"
-        render={(props) => {
-          //obtener el id de la ruta
-          const idProducto = props.match.params.id;
-          console.log(idProducto);
-          //filtrar el arreglo de productos y obtener el q coincide con el id
-          const productoSeleccionado = listaJuegos.find(
-            (producto) => producto.id === idProducto
-          );
-          console.log(productoSeleccionado);
-          //renderizar el componente EditarProducto
-          return (
-            <EditarProducto producto={productoSeleccionado} setRecargarProductos={setRecargarProductos}></EditarProducto>
-          );
-        }}>
-        </Route>
+        element={<EditarProducto producto={seleccionarProducto} setRecargarProductos={setRecargarProductos}></EditarProducto>}>
+        </Route>       
       </Routes>
       <Footer></Footer>
     </Router>
