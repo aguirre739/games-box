@@ -12,7 +12,6 @@ import AgregarProducto from './components/productos/AgregarProducto';
 import EditarProducto from './components/productos/EditarProducto';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
-import ReactDOM from "react-dom";
 
 function App() {
   const [listaJuegos, setListaJuegos] = useState([]);
@@ -23,14 +22,18 @@ function App() {
     setRecargarProductos(false);
   }, [recargarProductos])
 
-  const seleccionarProducto = (props)=>{
-    const idProducto = props.match.params.id;
+/*  const seleccionarProducto = (match)=>{
+    const idProducto = match.params.id;
           console.log(idProducto);
-          const productoSeleccionado = listaJuegos.find(
+          const productoSeleccionado2 = listaJuegos.find(
             (producto) => producto.id === idProducto
           );
-          console.log(productoSeleccionado);
+          console.log(productoSeleccionado2);
+          return productoSeleccionado2;   
   }
+
+  const productoSeleccionado = seleccionarProducto() 
+  setProductoElegido (1)*/
 
   const consultarApi = async () => {
     try {
@@ -54,8 +57,8 @@ function App() {
         <Route exact path="/productos/nuevo" element={<AgregarProducto setRecargarProductos={setRecargarProductos}></AgregarProducto>}>
         </Route>
         <Route exact path="/productos/editar/:id"
-        element={<EditarProducto producto={seleccionarProducto} setRecargarProductos={setRecargarProductos}></EditarProducto>}>
-        </Route>       
+          element={<EditarProducto producto={listaJuegos} setRecargarProductos={setRecargarProductos}></EditarProducto>}>
+        </Route>
       </Routes>
       <Footer></Footer>
     </Router>
