@@ -1,36 +1,12 @@
 {
   "juegos": [
     {
-      "nombreJuego": "Dark Souls 3",
-      "precioJuego": "650",
-      "portada": "img/portadaDS3.jpg",
-      "fechaLanzamiento": "25/09/2020",
-      "categoria": "accion",
-      "id": 1
-    },
-    {
       "nombreJuego": "Borderlands 3",
       "precioJuego": "3200",
       "portada": "img/portadaBL.jpg",
       "fechaLanzamiento": "10/01/2021",
       "categoria": "aventura",
       "id": 2
-    },
-    {
-      "nombreJuego": "The Witcher 3",
-      "precioJuego": "2450",
-      "portada": "img/portadaTW.jpg",
-      "fechaLanzamiento": "11/10/2019",
-      "categoria": "aventura",
-      "id": 3
-    },
-    {
-      "nombreJuego": "Hunt: Shutdown",
-      "precioJuego": "130",
-      "portada": "https://cdn.akamai.steamstatic.com/steam/apps/2133640/ss_1feab42d245585bb05e619efccc38b6043aae4db.600x338.jpg?t=1669046535",
-      "fechaLanzamiento": "2022-11-02",
-      "categoria": "accion",
-      "id": 4
     },
     {
       "nombreJuego": "Call Of Duty: Modern Warfare II",
@@ -47,14 +23,6 @@
       "fechaLanzamiento": "2022-11-04",
       "categoria": "aventura",
       "id": 6
-    },
-    {
-      "nombreJuego": "Dota 2",
-      "precioJuego": "290",
-      "portada": "https://cdn.akamai.steamstatic.com/steam/apps/570/hero_capsule.jpg?t=1666237243",
-      "fechaLanzamiento": "2022-09-26",
-      "categoria": "estrategia",
-      "id": 7
     }
   ]
 }

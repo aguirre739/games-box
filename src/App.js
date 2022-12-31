@@ -22,19 +22,6 @@ function App() {
     setRecargarProductos(false);
   }, [recargarProductos])
 
-/*  const seleccionarProducto = (match)=>{
-    const idProducto = match.params.id;
-          console.log(idProducto);
-          const productoSeleccionado2 = listaJuegos.find(
-            (producto) => producto.id === idProducto
-          );
-          console.log(productoSeleccionado2);
-          return productoSeleccionado2;   
-  }
-
-  const productoSeleccionado = seleccionarProducto() 
-  setProductoElegido (1)*/
-
   const consultarApi = async () => {
     try {
       const consulta = await fetch("http://localhost:4000/juegos")
@@ -50,14 +37,14 @@ function App() {
     <Router>
       <Header></Header>
       <Routes>
-        <Route exact path="/" element={<Inicio listaJuegos={listaJuegos}></Inicio>}>
+        <Route path="/" element={<Inicio listaJuegos={listaJuegos}></Inicio>}>
         </Route>
-        <Route exact path="/productos" element={<ListarProductos listaJuegos={listaJuegos} setRecargarProductos={setRecargarProductos}></ListarProductos>}>
+        <Route path="/productos" element={<ListarProductos listaJuegos={listaJuegos} setRecargarProductos={setRecargarProductos}></ListarProductos>}>
         </Route>
-        <Route exact path="/productos/nuevo" element={<AgregarProducto setRecargarProductos={setRecargarProductos}></AgregarProducto>}>
+        <Route path="/productos/nuevo" element={<AgregarProducto setRecargarProductos={setRecargarProductos}></AgregarProducto>}>
         </Route>
-        <Route exact path="/productos/editar/:id"
-          element={<EditarProducto producto={listaJuegos} setRecargarProductos={setRecargarProductos}></EditarProducto>}>
+        <Route exact path="/productos/editar/:idJuego"
+          element={<EditarProducto listaJuegos={listaJuegos} setRecargarProductos={setRecargarProductos}></EditarProducto>}>
         </Route>
       </Routes>
       <Footer></Footer>

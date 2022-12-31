@@ -1,10 +1,20 @@
 import React, { useState, useRef } from 'react';
 import { Container, Button, Form, Alert } from "react-bootstrap";
+import { useParams } from 'react-router-dom';
 import Swal from "sweetalert2";
+import moment from "moment";
 
 const EditarProducto = (props) => {
   const [categoria, setCategoria] = useState("");
   const [error, setError] = useState(false);
+
+  let {idJuego} = useParams();
+  console.log(idJuego);
+  const productoSeleccionado = props.listaJuegos.find(
+    (juego) => juego.id === parseInt(idJuego)
+  );
+  console.log(productoSeleccionado);
+
 
   //aqui creo los useRef
   const nombreProductoRef = useRef("");
@@ -19,11 +29,11 @@ const EditarProducto = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     //validar los datos
-    let _categoria = (categoria === "") ? props.producto.categoria : categoria;
+    let _categoria = (categoria === "") ? productoSeleccionado.categoria : categoria;
     console.log(_categoria);
     console.log(nombreProductoRef)
-    console.log(nombreProductoRef.current.value);
-    console.log(precioProductoRef.current.value);
+    console.log("nombreProducto",nombreProductoRef.current.value);
+    console.log("precioPRod",precioProductoRef.current.defaultValue);
 
     if (nombreProductoRef.current.value.trim() === "" || precioProductoRef.current.value.trim() === "" || portadaProductoRef.current.value.trim() === "" || fechaProductoRef.current.value.trim() === "" || _categoria === "") {
       //mostrar cartel de error
@@ -33,15 +43,15 @@ const EditarProducto = (props) => {
     setError(false);
     //preparar el objeto con los datos
     const productoModificado = {
-      nombreProducto: nombreProductoRef.current.value,
-      precioProducto: precioProductoRef.current.value,
-      portadaProductoRef: portadaProductoRef.current.value,
-      fechaProductoRef: fechaProductoRef.current.value,
+      nombreProducto: nombreProductoRef.current.defaultValue,
+      precioProducto: precioProductoRef.current.defaultValue,
+      portadaProducto: portadaProductoRef.current.defaultValue,
+      fechaProducto: fechaProductoRef.current.defaultValue,
       categoria: _categoria
     }
     //enviar el objeto
     try {
-      const consulta = await fetch(`http://localhost:4000/juegos/${props.producto.id}`,
+      const consulta = await fetch(`http://localhost:4000/juegos/${productoSeleccionado.id}`,
         {
           method: "PUT", //se usa para editar
           headers: {
@@ -50,6 +60,7 @@ const EditarProducto = (props) => {
           body: JSON.stringify(productoModificado)
         });
       console.log(consulta);
+      console.log(productoModificado)
       if (consulta.status === 200) {
         //se modificaron correctamente los datos
         props.setRecargarProductos(true);
@@ -82,7 +93,8 @@ const EditarProducto = (props) => {
             type="text"
             placeholder="Ej. Isacc"
             ref={nombreProductoRef}
-            defaultValue={props.producto.nombreJuego}
+
+            defaultValue={productoSeleccionado.nombreJuego}
           />
         </Form.Group>
 
@@ -92,7 +104,7 @@ const EditarProducto = (props) => {
             type="number"
             placeholder="Ej. $2600"
             ref={precioProductoRef}
-            defaultValue={props.producto.precioJuego}
+            defaultValue={productoSeleccionado.precioJuego}
           />
         </Form.Group>
 
@@ -102,17 +114,17 @@ const EditarProducto = (props) => {
             type="text"
             placeholder="url/link de la imagen"
             ref={portadaProductoRef}
-            defaultValue={props.producto.portada}
+            defaultValue={productoSeleccionado.portada}
           />
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label>Fecha de lanzamiento *</Form.Label>
           <Form.Control
-            type="date"
+            type="text"
             placeholder="fecha"
             ref={fechaProductoRef}
-            defaultValue={props.producto.fechaLanzamiento}
+            defaultValue={moment(productoSeleccionado.fechaLanzamiento).add(1,'d').format('L')}
           />
         </Form.Group>
 
@@ -126,7 +138,7 @@ const EditarProducto = (props) => {
               value="accion"
               name="categoria"
               onChange={seleccionarCategoria}
-              defaultChecked={props.producto.categoria === "accion"}
+              defaultChecked={productoSeleccionado.categoria === "accion"}
             />
             <Form.Check
               type="radio"
@@ -135,7 +147,7 @@ const EditarProducto = (props) => {
               value="aventura"
               name="categoria"
               onChange={seleccionarCategoria}
-              defaultChecked={props.producto.categoria === "aventura"}
+              defaultChecked={productoSeleccionado.categoria === "aventura"}
             />
             <Form.Check
               type="radio"
@@ -144,7 +156,7 @@ const EditarProducto = (props) => {
               value="rol"
               name="categoria"
               onChange={seleccionarCategoria}
-              defaultChecked={props.producto.categoria === "rol"}
+              defaultChecked={productoSeleccionado.categoria === "rol"}
             />
             <Form.Check
               type="radio"
@@ -153,7 +165,7 @@ const EditarProducto = (props) => {
               value="simulacion"
               name="categoria"
               onChange={seleccionarCategoria}
-              defaultChecked={props.producto.categoria === "simulacion"}
+              defaultChecked={productoSeleccionado.categoria === "simulacion"}
             />
             <Form.Check
               type="radio"
@@ -162,7 +174,7 @@ const EditarProducto = (props) => {
               value="estrategia"
               name="categoria"
               onChange={seleccionarCategoria}
-              defaultChecked={props.producto.categoria === "estrategia"}
+              defaultChecked={productoSeleccionado.categoria === "estrategia"}
             />
             <Form.Check
               type="radio"
@@ -171,7 +183,7 @@ const EditarProducto = (props) => {
               value="deporte"
               name="categoria"
               onChange={seleccionarCategoria}
-              defaultChecked={props.producto.categoria === "deporte"}
+              defaultChecked={productoSeleccionado.categoria === "deporte"}
             />
           </div>
         </Form.Group>

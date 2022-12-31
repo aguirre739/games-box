@@ -13,9 +13,9 @@ const Header = () =>{
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    <NavLink exact={true} to="/" className="nav-link">Inicio</NavLink>
-                    <NavLink exact={true} to="/productos" className="nav-link">Tienda</NavLink>
-                    <NavLink exact={true} to="/productos/nuevo" className="nav-link">Nuevo Juego</NavLink>
+                    <NavLink to="/" className="nav-link">Inicio</NavLink>
+                    <NavLink to="/productos" className="nav-link">Tienda</NavLink>
+                    <NavLink to="/productos/nuevo" className="nav-link">Nuevo Juego</NavLink>
                 </Nav>
             </Navbar.Collapse>
         </Container>

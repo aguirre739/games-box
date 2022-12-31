@@ -4,8 +4,15 @@ import Image from "react-bootstrap/Image";
 import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 const ItemProducto = (props) => {
+  console.log(props.producto.nombreJuego)
+  console.log(props.producto.precioJuego)
+  console.log(props.producto.portada)
+  console.log(props.producto.fechaLanzamiento)
+
+  
   const eliminarProducto = (idProducto) => {
     console.log(idProducto);
     Swal.fire({
@@ -58,7 +65,7 @@ const ItemProducto = (props) => {
           className="img-thumbnail w-50"
           src={props.producto.portada}
         ></Image>
-        <p>Fecha de lanzamiento: {props.producto.fechaLanzamiento}</p>
+        <p>Fecha de lanzamiento: {moment(props.producto.fechaLanzamiento).add(1,'d').format('L')}</p>
         <p>
           <span className="badge boton">{props.producto.categoria}</span>
         </p>
